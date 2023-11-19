@@ -1,8 +1,8 @@
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-auth.js"
 
-const googleAuthBotton = document.querySelector('#Google-Auth')
+const GOOGLEAUTHBUTTON = document.querySelector('#Google-Auth')
 
-googleAuthBotton.addEventListener('click', async () => {
+GOOGLEAUTHBUTTON.addEventListener('click', async () => {
     const provider = new GoogleAuthProvider();
 
     const auth = getAuth();

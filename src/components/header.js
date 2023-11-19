@@ -66,7 +66,7 @@ export class headerContent extends HTMLElement {
                             <a href="#" id="Google-Auth">Iniciar sesión con google</a>
                         </li>
                         <li>
-
+                            <a href="#" id="Logout-Button">Cerrar sesión</a>
                         </li>
                         <li>
 
