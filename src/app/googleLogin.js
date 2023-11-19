@@ -2,11 +2,11 @@ import { getAuth, signInWithPopup, GoogleAuthProvider } from "https://www.gstati
 
 const googleAuthBotton = document.querySelector('#Google-Auth')
 
-googleAuthBotton.addEventListener('click', () => {
+googleAuthBotton.addEventListener('click', async () => {
     const provider = new GoogleAuthProvider();
 
     const auth = getAuth();
-    signInWithPopup(auth, provider)
+    await signInWithPopup(auth, provider)
         .then((result) => {
             // This gives you a Google Access Token. You can use it to access the Google API.
             const credential = GoogleAuthProvider.credentialFromResult(result);
@@ -14,7 +14,7 @@ googleAuthBotton.addEventListener('click', () => {
             // The signed-in user info.
             const user = result.user;
             // IdP data available using getAdditionalUserInfo(result)
-            console.log("Login Succefull");
+            console.log(credential);
         }).catch((error) => {
             // Handle Errors here.
             const errorCode = error.code;
