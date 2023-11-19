@@ -1,27 +1,32 @@
-import { getAuth, signInWithPopup, GoogleAuthProvider } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-auth.js"
+import { getAuth, signInWithPopup, GoogleAuthProvider } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-auth.js";
 
-const googleAuthBotton = document.querySelector('#Google-Auth')
+export function setupGoogleLogin(buttonId) {
+    const googleAuthButton = document.querySelector(`#${buttonId}`);
 
-googleAuthBotton.addEventListener('click', () => {
-    const provider = new GoogleAuthProvider();
+    if (googleAuthButton) {
+        googleAuthButton.addEventListener('click', async () => {
+            const provider = new GoogleAuthProvider();
+            const auth = getAuth();
 
-    const auth = getAuth();
-    signInWithPopup(auth, provider)
-        .then((result) => {
-            // This gives you a Google Access Token. You can use it to access the Google API.
-            const credential = GoogleAuthProvider.credentialFromResult(result);
-            const token = credential.accessToken;
-            // The signed-in user info.
-            const user = result.user;
-            // IdP data available using getAdditionalUserInfo(result)
-        }).catch((error) => {
-            // Handle Errors here.
-            const errorCode = error.code;
-            const errorMessage = error.message;
-            // The email of the user's account used.
-            const email = error.customData.email;
-            // The AuthCredential type that was used.
-            const credential = GoogleAuthProvider.credentialFromError(error);
-            // ...
+            try {
+                // Iniciar sesión con Google y obtener el resultado
+                const result = await signInWithPopup(auth, provider);
+
+                // Manejar la autenticación de Google exitosa
+                console.log("Autenticación exitosa:", result);
+
+                // Resto del código para manejar la autenticación de Google
+                // Puedes agregar más lógica aquí según tus necesidades
+
+                // Por ejemplo, puedes redirigir a otra página después de la autenticación
+                // window.location.href = "/dashboard";
+            } catch (error) {
+                // Manejar errores durante la autenticación de Google
+                console.error("Error de autenticación:", error);
+
+                // Resto del código para manejar errores
+                // Puedes agregar más lógica aquí según tus necesidades
+            }
         });
-})
+    }
+}

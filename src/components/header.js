@@ -9,6 +9,8 @@
  * En el constructor también podemos usar variables para definir datos que podremos usar
  * más adelante en el HTML y que tendran un valor el cual mostrar.
  */
+import { setupGoogleLogin } from './googleLoginModule.js';
+
 export class headerContent extends HTMLElement {
     constructor() {
         super();
@@ -76,6 +78,8 @@ export class headerContent extends HTMLElement {
             </header>
         `;
 
+        // Llamar a la función del módulo para configurar el botón de inicio de sesión de Google
+        setupGoogleLogin('Google-Auth');
         /**
          * Otra cosa importante a destacar es que aquí mismo podemos definir estilos
          * Y esos estilos unicamente afectaran este componente y no al resto del documento
