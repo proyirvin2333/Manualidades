@@ -2,11 +2,11 @@ import { getAuth, signInWithPopup, GoogleAuthProvider } from "https://www.gstati
 
 const googleAuthBotton = document.querySelector('#Google-Auth')
 
-googleAuthBotton.addEventListener('click', async () => {
+googleAuthBotton.addEventListener('click', () => {
     const provider = new GoogleAuthProvider();
 
     const auth = getAuth();
-    await signInWithPopup(auth, provider)
+    signInWithPopup(auth, provider)
         .then((result) => {
             // This gives you a Google Access Token. You can use it to access the Google API.
             const credential = GoogleAuthProvider.credentialFromResult(result);
