@@ -48,26 +48,23 @@ export class headerContent extends HTMLElement {
      */
     connectedCallback() {
         this.innerHTML = `
+        <!-- 
+            Como puedes ver, aquí también podemos usar comentarios 
+            Y también podemos observar que tenemos definido el nombre
+            De los Atributos que utilizamos anteriormente, estos devuelveb
+            el valor de "name" y "surname"
+        -->
         <header>
-                <h1 class="title-main">Bienvenido a nuestra pagina de Manualidades</h1>
+            <h1 class="title-main" >Bienvenido a nuestra pagina de Manualidades</h1>
                 <p class="pragraph-main">
                     Aquí podras observar todas las manualidades creadas por nuestra comunidad
-                    <br>
+                <br>
                 </p class="pragraph-main">
                 <nav class="navigation-content">
-                    <ul>
-                        <li>
-                            <a href="#" id="Google-Auth">Iniciar sesión con google</a>
-                        </li>
-                        <li>
-
-                        </li>
-                        <li>
-
-                        </li>
-                    </ul>
+                    <h1>hola ${this.name}</h1>
+                    <p>Esto es un párrafo ${this.surname}</p>
                 </nav>
-            </header>
+        </header>
         `;
 
         /**
