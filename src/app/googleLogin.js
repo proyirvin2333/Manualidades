@@ -14,7 +14,7 @@ googleAuthBotton.addEventListener('click', () => {
             // The signed-in user info.
             const user = result.user;
             // IdP data available using getAdditionalUserInfo(result)
-            // ...
+            console.log("Login Succefull");
         }).catch((error) => {
             // Handle Errors here.
             const errorCode = error.code;
