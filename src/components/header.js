@@ -9,6 +9,7 @@
  * En el constructor también podemos usar variables para definir datos que podremos usar
  * más adelante en el HTML y que tendran un valor el cual mostrar.
  */
+import "../app/googleLogin";
 export class headerContent extends HTMLElement {
     constructor() {
         super();
