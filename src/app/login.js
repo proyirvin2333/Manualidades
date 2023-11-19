@@ -2,8 +2,8 @@ import { getAuth, signOut } from "https://www.gstatic.com/firebasejs/10.6.0/fire
 import "../app/googleLogin"
 
 const auth = getAuth();
-signOut(auth).then(async () => {
-    console.log("Logueado")
+signOut(auth).then(() => {
+    // Sign-out successful.
 }).catch((error) => {
-    console.log(error);
+    // An error happened.
 });
