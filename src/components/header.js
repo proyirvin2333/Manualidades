@@ -55,16 +55,25 @@ export class headerContent extends HTMLElement {
             el valor de "name" y "surname"
         -->
         <header>
-            <h1 class="title-main" >Bienvenido a nuestra pagina de Manualidades</h1>
+                <h1 class="title-main">Bienvenido a nuestra pagina de Manualidades</h1>
                 <p class="pragraph-main">
                     Aquí podras observar todas las manualidades creadas por nuestra comunidad
-                <br>
+                    <br>
                 </p class="pragraph-main">
                 <nav class="navigation-content">
-                    <h1>hola ${this.name}</h1>
-                    <p>Esto es un párrafo ${this.surname}</p>
+                    <ul>
+                        <li>
+                            <a href="#" id="Google-Auth">Iniciar sesión con google</a>
+                        </li>
+                        <li>
+
+                        </li>
+                        <li>
+
+                        </li>
+                    </ul>
                 </nav>
-        </header>
+            </header>
         `;
 
         /**
