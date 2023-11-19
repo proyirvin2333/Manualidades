@@ -3,7 +3,7 @@ import "../app/googleLogin"
 
 const auth = getAuth();
 signOut(auth).then(() => {
-    // Sign-out successful.
+    console.log("Logueado")
 }).catch((error) => {
-    // An error happened.
+    console.log(error);
 });
