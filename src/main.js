@@ -2,6 +2,8 @@ import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.6.0/fi
 import { revisaSesion } from "./app/revisaSesion.js";
 import { auth } from "./app/firebase.js";
 import './app/iniciaSesionEmailAndPass.js'
+import './app/iniciaSesionFacebook.js'
+import './app/iniciaSesionGoogle.js'
 import './app/formularioRegistro.js'
 import './app/cierreSesion.js'
 
