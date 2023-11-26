@@ -8,7 +8,9 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Enlaza al archivo de estilos de Toastify -->
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <!-- CSS PERSONALIZADO -->
     <link rel="stylesheet" href="style.css">
+    <!-- El modulo Main contiene lo necesario para que el programa funcione -->
     <script type="module" src="./main.js"></script>
     <title>Manualidades UTN</title>
 </head>
@@ -68,9 +70,17 @@
     <!-- Contenido del cuerpo aquí -->
     <div class="container p-4 mt-5">
         <div class="row">
-            <div class="col-md-6 offset-md-3">
-                <ul class="list-group Manualidades"></ul>
-            </div>
+            <form id="Formulario-Manualidad">
+                <label for="Titulo">
+                    Titulo:
+                </label>
+                <input type="text" id="Titulo-Manualidad" placeholder="Titulo de la Manualidad">
+                <label for="Descripcion">
+                    Descripcion:
+                </label>
+                <textarea id="Descripcion-Manualidad" rows="3" placeholder="Descipcion de tu manualiad"></textarea>
+                <button id="Guardar-Manualidad">Subir manualidad</button>
+            </form>
         </div>
     </div>
 

@@ -5,6 +5,13 @@ import { auth } from "./firebase.js";
 const CerrarSesion = document.querySelector('#CerrarSesion');
 
 CerrarSesion.addEventListener('click', async () => {
-    await signOut(auth)
-    mostrarMensaje('Hasta Pronto')
-})
+    await signOut(auth);
+    mostrarMensaje('Hasta Pronto');
+
+    // Agregar un retraso de 2 segundos antes de redirigir
+    setTimeout(() => {
+        window.location.href = 'index.html';
+    }, 2000);
+});
+
+

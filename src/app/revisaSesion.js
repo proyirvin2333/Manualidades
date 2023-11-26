@@ -1,9 +1,5 @@
 const BotoneSinSesion = document.querySelectorAll('.botoneSinSesion'),
     botonesConSesion = document.querySelectorAll('.botonesConSesion');
-console.log(BotoneSinSesion);
-
-console.log(botonesConSesion);
-
 export const revisaSesion = usuario => {
     if (usuario) {
         botonesConSesion.forEach(link => link.style.display = 'block')
