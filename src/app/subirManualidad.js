@@ -15,11 +15,8 @@ window.addEventListener('DOMContentLoaded', () => {
             // Utiliza addDoc para agregar un documento con un identificador generado automáticamente
             const nuevoDocumentoRef = await addDoc(collection(db, 'manualidades'), { Titulo: TITULO, Descripcion: DESCRIPCION });
 
-            // Obtiene el identificador generado automáticamente
-            const nuevoIdentificador = nuevoDocumentoRef.id;
-
             // Muestra un mensaje si todo sale bien
-            mostrarMensaje(`La manualidad ${nuevoIdentificador} ha sido subida exitosamente`);
+            mostrarMensaje(`La manualidad ha sido subida exitosamente`);
 
             // Limpia el formulario
             formularioManualidad.reset();

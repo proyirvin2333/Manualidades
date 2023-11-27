@@ -7,13 +7,21 @@ import './app/iniciaSesionEmailAndPass.js'
 import './app/iniciaSesionFacebook.js'
 import './app/iniciaSesionGoogle.js'
 import './app/formularioRegistro.js'
+import './app/subirManualidad.js'
 import './app/cierreSesion.js'
 
 onAuthStateChanged(auth, async (usuario) => {
     if (usuario) {
-        // Si el usuario está en el index, muestra la lista de manualidades
-        const querySnapshot = await getDocs(collection(db, 'manualidades'))
-        MostrarListaManualidades(querySnapshot.docs);
+        const currentPath = window.location.pathname;
+
+        if (currentPath === '/src/index.html') {
+            // Si el usuario está en el index, muestra la lista de manualidades
+            const querySnapshot = await getDocs(collection(db, 'manualidades'))
+            MostrarListaManualidades(querySnapshot.docs);
+        } else if (currentPath === '/src/Subir Manualidades.html') {
+            // Si el usuario está en la interfaz "Subir Manualidades.html", no muestra nada
+            MostrarListaManualidades([]);  // Puedes ajustar esto según tu lógica
+        }
     } else {
         MostrarListaManualidades([]);  // Puedes ajustar esto según tu lógica
     }
