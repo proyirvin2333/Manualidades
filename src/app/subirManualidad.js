@@ -1,6 +1,5 @@
 import { collection, addDoc } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-firestore.js";
 import { mostrarMensaje } from "./mensajes.js";
-import './modulosFirebase.js';
 import { db } from "./firebase.js";
 
 window.addEventListener('DOMContentLoaded', () => {
