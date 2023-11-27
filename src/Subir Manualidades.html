@@ -70,16 +70,18 @@
     <!-- Contenido del cuerpo aquí -->
     <div class="container p-4 mt-5">
         <div class="row">
-            <form id="Formulario-Manualidad">
-                <label for="Titulo">
-                    Titulo:
-                </label>
-                <input type="text" id="Titulo-Manualidad" placeholder="Titulo de la Manualidad">
-                <label for="Descripcion">
-                    Descripcion:
-                </label>
-                <textarea id="Descripcion-Manualidad" rows="3" placeholder="Descipcion de tu manualiad"></textarea>
-                <button id="Guardar-Manualidad">Subir manualidad</button>
+            <form id="Formulario-Manualidad" class="col-md-6 mx-auto">
+                <div class="mb-3">
+                    <label for="Titulo-Manualidad" class="form-label">Título:</label>
+                    <input type="text" class="form-control" id="Titulo-Manualidad"
+                        placeholder="Título de la Manualidad">
+                </div>
+                <div class="mb-3">
+                    <label for="Descripcion-Manualidad" class="form-label">Descripción:</label>
+                    <textarea class="form-control" id="Descripcion-Manualidad" rows="3"
+                        placeholder="Descripción de tu manualidad"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary" id="Guardar-Manualidad">Subir manualidad</button>
             </form>
         </div>
     </div>
