@@ -15,8 +15,8 @@ const firebaseConfig = {
     projectId: "minimal-manualidades-app",
     storageBucket: "minimal-manualidades-app.appspot.com",
     messagingSenderId: "980262696650",
-    appId: "1:980262696650:web:734ff5516589ee48236633",
-    measurementId: "G-PZFJP6SDXX"
+    appId: "1:980262696650:web:f32b2fb39d33e630236633",
+    measurementId: "G-6D80WMHQDK"
 };
 
 // Initialize Firebase
