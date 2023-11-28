@@ -67,18 +67,31 @@
     <!-- Contenido del cuerpo aquí -->
     <div class="container p-4 mt-5">
         <div class="row">
-            <form id="Formulario-Manualidad" class="col-md-6 mx-auto">
+            <form id="Formulario-Maestro" class="col-md-6 mx-auto">
                 <div class="mb-3">
-                    <label for="Titulo-Manualidad" class="form-label">Título:</label>
-                    <input type="text" class="form-control" id="Titulo-Manualidad"
-                        placeholder="Título de la Manualidad">
+                    <label for="Nombre-Maestro" class="form-label">Nombre del Maestro:</label>
+                    <input type="text" class="form-control" id="Nombre-Maestro" placeholder="Nombre del Maestro">
                 </div>
                 <div class="mb-3">
-                    <label for="Descripcion-Manualidad" class="form-label">Descripción:</label>
-                    <textarea class="form-control" id="Descripcion-Manualidad" rows="3"
-                        placeholder="Descripción de tu manualidad"></textarea>
+                    <label for="Experiencia-Maestro" class="form-label">Experiencia en años:</label>
+                    <input type="number" class="form-control" id="Experiencia-Maestro"
+                        placeholder="Experiencia en años">
                 </div>
-                <button type="submit" class="btn btn-primary" id="Guardar-Manualidad">Subir manualidad</button>
+                <div class="mb-3">
+                    <label for="Especialidad-Maestro" class="form-label">Especialidad:</label>
+                    <input type="text" class="form-control" id="Especialidad-Maestro"
+                        placeholder="Especialidad del Maestro">
+                </div>
+                <div class="mb-3">
+                    <label for="Materia-Maestro" class="form-label">Horas semanales de trabajo:</label>
+                    <input type="number" class="form-control" id="Horas-Semanales-Maestro"
+                        placeholder="Horas semanales">
+                </div>
+                <div class="mb-3">
+                    <label for="Fecha-Contratacion-Maestro" class="form-label">Fecha de Contratación:</label>
+                    <input type="date" class="form-control" id="Fecha-Contratacion-Maestro">
+                </div>
+                <button type="submit" class="btn btn-primary" id="Guardar-Maestro">Guardar Maestro</button>
             </form>
         </div>
     </div>

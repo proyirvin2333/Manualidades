@@ -63,10 +63,12 @@
     </nav>
 
     <!-- Contenido del cuerpo aquí -->
+
+    <!-- Lista de Maestros -->
     <div class="container p-4 mt-5">
         <div class="row">
             <div class="col-md-6 offset-md-3 mt-5">
-                <ul class="list-group Manualidades"></ul>
+                <ul class="list-group Maestros"></ul>
             </div>
         </div>
     </div>
@@ -130,28 +132,45 @@
     </div>
 
     <!-- MODAL DE ACTUALIZACIÓN -->
-    <div class="modal fade" id="Actualizar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="ActualizarMaestro" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content bg-dark text-light">
                 <div class="modal-header bg-dark">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Actualizar promoción</h1>
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Actualizar Maestro</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form id="Formulario-ActualizarManualidad">
-                        <label for="Titulo-Manualidad">Titulo de la manualidad</label>
-                        <input type="text" id="Titulo-Manualidad" class="form-control mb-3"
-                            placeholder="Ingresa un titulo">
-                        <label for="Descripcion-Manualidad">Descripción de la manualidad</label>
-                        <input type="text" id="Descripcion-Manualidad" class="form-control mb-3"
-                            placeholder="Ingresa una descripción">
-                        <button class="btn btn-primary w-100 mb-2 edit Boton-ActualizarManualidad">Actualizar</button>
+                    <form id="Formulario-ActualizarMaestro">
+                        <div class="mb-3">
+                            <label for="Actualizar-Nombre">Nombre del Maestro</label>
+                            <input type="text" id="Actualizar-Nombre" class="form-control mb-3"
+                                placeholder="Ingresa el nuevo nombre">
+                        </div>
+                        <div class="mb-3">
+                            <label for="Actualizar-Experiencia">Experiencia en años</label>
+                            <input type="number" id="Actualizar-Experiencia" class="form-control mb-3"
+                                placeholder="Ingresa la nueva experiencia en años">
+                        </div>
+                        <div class="mb-3">
+                            <label for="Actualizar-Especialidad">Especialidad</label>
+                            <input type="text" id="Actualizar-Especialidad" class="form-control mb-3"
+                                placeholder="Ingresa la nueva especialidad">
+                        </div>
+                        <div class="mb-3">
+                            <label for="Actualizar-HoraSemanales">Horas semanales de trabajo</label>
+                            <input type="number" id="Actualizar-HoraSemanales" class="form-control mb-3"
+                                placeholder="Ingresa las nuevas horas semanales">
+                        </div>
+                        <div class="mb-3">
+                            <label for="Actualizar-FechaContratacion">Fecha de Contratación</label>
+                            <input type="date" id="Actualizar-FechaContratacion" class="form-control mb-3">
+                        </div>
+                        <button class="btn btn-primary w-100 mb-2 edit Boton-ActualizarMaestro">Actualizar</button>
                     </form>
                 </div>
             </div>
         </div>
     </div>
-
 
     <!-- Scripts de Bootstrap y otros scripts necesarios -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>

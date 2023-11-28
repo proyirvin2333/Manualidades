@@ -2,49 +2,52 @@ import { deleteDoc, doc, getDoc, updateDoc } from "https://www.gstatic.com/fireb
 import { mostrarMensaje } from "./mensajes.js";
 import { db } from "./firebase.js";
 
-const Manualidades = document.querySelector('.Manualidades');
-const FormularioActualizarManualidades = document.querySelector('#Formulario-ActualizarManualidad');
+const Maestros = document.querySelector('.Maestros');
+const FormularioActualizarMaestro = document.querySelector('#Formulario-ActualizarMaestro');
 
-const obtenerManualidad = (id) => getDoc(doc(db, 'manualidades', id));
+const obtenerMaestros = (id) => getDoc(doc(db, 'Maestros', id));
 
 let id = '';
 
 // Nueva función para actualizar manualidad
 const actualizarManualidad = async (id, nuevosValores) => {
     try {
-        await updateDoc(doc(db, 'manualidades', id), nuevosValores);
+        await updateDoc(doc(db, 'Maestros', id), nuevosValores);
         mostrarMensaje('Manualidad actualizada correctamente');
     } catch (error) {
         mostrarMensaje('Error al actualizar la manualidad', 'error');
     }
 };
 
-export const MostrarListaManualidades = (Datos) => {
+export const MostrarListaMaestros = (Datos) => {
     if (Datos.length) {
         let html = '';
         Datos.forEach(documento => {
-            const Manualidad = documento.data();
+            const Maestro = documento.data();
             const idDocumento = documento.id; // Obtén el identificador del documento
             const li = `
                 <li class="list-group-item list-group-item-action">
-                    <h5> ${Manualidad.Titulo} </h5>
-                    <p> ${Manualidad.Descripcion} </p>
-                    <button class="btn btn-outline-warning w-100 mb-2 botoneSinSesion Eliminar-Manualidad" data-id="${idDocumento}"> Eliminar </button>
-                    <button class="btn btn-outline-success w-100 mb-2 botoneSinSesion Actualizar-Manualidad" data-id="${idDocumento}" data-bs-toggle="modal" data-bs-target="#Actualizar"> Actualizar </button>
+                    <h5> Nombre del maestro: ${Maestro.Nombre} </h5>
+                    <p> Experiencia laboral: ${Maestro.Experiencia} </p>
+                    <p> Especialidad: ${Maestro.Especialidad} </p>
+                    <p> Fecha de contrato: ${Maestro.FechaContratacion} </p>
+                    <p> Horas Semanales: ${Maestro.HorasSemanales} </p>
+                    <button class="btn btn-outline-warning w-100 mb-2 botoneSinSesion Eliminar-Maestro" data-id="${idDocumento}"> Eliminar </button>
+                    <button class="btn btn-outline-success w-100 mb-2 botoneSinSesion Actualizar-Maestro" data-id="${idDocumento}" data-bs-toggle="modal" data-bs-target="#ActualizarMaestro"> Actualizar </button>
                 </li>
             `;
             html += li;
         });
-        Manualidades.innerHTML = html;
+        Maestros.innerHTML = html;
 
-        const BotonesEliminar = Manualidades.querySelectorAll('.Eliminar-Manualidad');
+        const BotonesEliminar = Maestros.querySelectorAll('.Eliminar-Maestro');
 
         // ELIMINAR MANUALIDADES
         BotonesEliminar.forEach(BotonEliminarIndividual => {
             BotonEliminarIndividual.addEventListener('click', async (event) => {
                 const Documento = event.target.dataset.id;
                 try {
-                    await deleteDoc(doc(db, 'manualidades', Documento));
+                    await deleteDoc(doc(db, 'Maestros', Documento));
                     // Puedes agregar aquí algún código adicional después de eliminar el documento, si es necesario
                 } catch (error) {
                     mostrarMensaje('Error al eliminar la manualidad:', 'error');
@@ -52,45 +55,54 @@ export const MostrarListaManualidades = (Datos) => {
             });
         });
 
-        const BotonesActualizar = Manualidades.querySelectorAll('.Actualizar-Manualidad');
+        const BotonesActualizar = Maestros.querySelectorAll('.Actualizar-Maestro');
 
         BotonesActualizar.forEach(BotonActualizarIndividual => {
             BotonActualizarIndividual.addEventListener('click', async (e) => {
-                const identificadorDocumento = await obtenerManualidad(e.target.dataset.id);
+                const identificadorDocumento = await obtenerMaestros(e.target.dataset.id);
 
                 // Accede a los datos del documento utilizando el método data()
                 const DATOSDOCUMENTO = identificadorDocumento.data();
 
                 // Ahora puedes acceder a las propiedades del documento
-                const TITULO = FormularioActualizarManualidades['Titulo-Manualidad'];
-                const DESCRIPCION = FormularioActualizarManualidades['Descripcion-Manualidad'];
+                const NOMBRE = FormularioActualizarMaestro['Actualizar-Nombre'];
+                const EXPERIENCIA = FormularioActualizarMaestro['Actualizar-Experiencia'];
+                const ESPECIALIDAD = FormularioActualizarMaestro['Actualizar-Especialidad'];
+                const FECHA_CONTRATACION = FormularioActualizarMaestro['Actualizar-FechaContratacion'];
+                const HORAS_SEMANALES = FormularioActualizarMaestro['Actualizar-HoraSemanales'];
 
-                TITULO.value = DATOSDOCUMENTO.Titulo; // Accede a la propiedad 'Titulo' del objeto data
-                DESCRIPCION.value = DATOSDOCUMENTO.Descripcion; // Accede a la propiedad 'Descripcion' del objeto data
+                NOMBRE.value = DATOSDOCUMENTO.Nombre; // Accede a la propiedad 'Titulo' del objeto data
+                EXPERIENCIA.value = DATOSDOCUMENTO.Experiencia; // Accede a la propiedad 'Titulo' del objeto data
+                ESPECIALIDAD.value = DATOSDOCUMENTO.Especialidad; // Accede a la propiedad 'Titulo' del objeto data
+                FECHA_CONTRATACION.value = DATOSDOCUMENTO.FechaContratacion; // Accede a la propiedad 'Titulo' del objeto data
+                HORAS_SEMANALES.value = DATOSDOCUMENTO.HorasSemanales; // Accede a la propiedad 'Descripcion' del objeto data
                 id = identificadorDocumento.id;
-
-                console.log(id); // Datos completos del documento
-                // Puedes realizar acciones adicionales con el documento obtenido, según sea necesario
             });
         });
 
         // Evento para actualizar la manualidad al enviar el formulario
-        FormularioActualizarManualidades.addEventListener('submit', async (e) => {
+        FormularioActualizarMaestro.addEventListener('submit', async (e) => {
             e.preventDefault();
             try {
                 // Validar campos aquí si es necesario
-                const TITULO = FormularioActualizarManualidades['Titulo-Manualidad'].value;
-                const DESCRIPCION = FormularioActualizarManualidades['Descripcion-Manualidad'].value;
+                const NOMBRE = FormularioActualizarMaestro['Actualizar-Nombre'].value;
+                const EXPERIENCIA = FormularioActualizarMaestro['Actualizar-Experiencia'].value;
+                const ESPECIALIDAD = FormularioActualizarMaestro['Actualizar-Especialidad'].value;
+                const FECHA_CONTRATACION = FormularioActualizarMaestro['Actualizar-FechaContratacion'].value;
+                const HORAS_SEMANALES = FormularioActualizarMaestro['Actualizar-HoraSemanales'].value;
 
                 // Llamada directa a la función actualizarManualidad
                 await actualizarManualidad(id, {
-                    Titulo: TITULO,
-                    Descripcion: DESCRIPCION
+                    Nombre: NOMBRE,
+                    Experiencia: EXPERIENCIA,
+                    Especialidad: ESPECIALIDAD,
+                    FechaContratacion: FECHA_CONTRATACION,
+                    HorasSemanales: HORAS_SEMANALES,
                     // Agrega aquí otras propiedades que necesitas actualizar
                 });
 
                 // Cerrar el modal (si es un modal)
-                const actualizarModal = document.querySelector('#Actualizar');
+                const actualizarModal = document.querySelector('#ActualizarMaestro');
                 const modal = bootstrap.Modal.getInstance(actualizarModal);
                 modal.hide();
             } catch (error) {
@@ -99,7 +111,7 @@ export const MostrarListaManualidades = (Datos) => {
         });
 
     } else if (Datos.length === 0) {
-        Manualidades.innerHTML = `
+        Maestros.innerHTML = `
             <h1>
                 Para visualizar el contenido es necesario que inicies sesión
                 <br><br>

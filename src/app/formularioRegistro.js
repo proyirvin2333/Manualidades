@@ -1,5 +1,5 @@
 import { createUserWithEmailAndPassword, updateProfile } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-auth.js";
-export { doc, setDoc } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-firestore.js";
+import { doc, setDoc } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-firestore.js";
 import { mostrarMensaje } from "./mensajes.js";
 import { auth, db } from "./firebase.js";
 
@@ -18,8 +18,8 @@ formularioRegistro.addEventListener('submit', async (e) => {
         // Asigna el rol de "Usuario" al nuevo usuario
         await updateProfile(CREDENCIALES.user, { displayName: "Usuario" });
 
-        // Agrega un documento a la colección "USUARIOS" con el ID igual al correo del usuario
-        await setDoc(doc(db, 'Usuarios', EMAIL), { Rol: ["Usuario"] });
+        // Agrega un documento a la colección "Usuarios" con el ID igual al correo del usuario
+        await setDoc(doc(db, 'Usuarios', EMAIL), { Roles: ["Usuario"] });
 
         const MODALREGISTRO = document.querySelector('#Registrarse');
         const MODAL = bootstrap.Modal.getInstance(MODALREGISTRO);
@@ -36,6 +36,5 @@ formularioRegistro.addEventListener('submit', async (e) => {
         } else if (error.code) {
             mostrarMensaje('Algo salió mal', 'noValido');
         }
-        console.error(error);
     }
 });
