@@ -9,7 +9,7 @@ const obtenerMaestros = (id) => getDoc(doc(db, 'Maestros', id));
 
 let id = '';
 
-// Nueva función para actualizar manualidad
+// Nueva función para actualizar Maestro
 const actualizarManualidad = async (id, nuevosValores) => {
     try {
         await updateDoc(doc(db, 'Maestros', id), nuevosValores);
